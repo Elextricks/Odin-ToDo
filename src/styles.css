@@ -13,9 +13,46 @@ html, body {
 .sidebar {
     border-style: solid;
     border-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 
-.project-view {
-    border-style: solid;
-    border-color: green;
+#project-view {
+    margin-left: 1vh;
+}
+
+#sidebar-functions {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#sidebar-header {
+    margin: 1vh;
+}
+
+#sidebar-functions > button {
+    margin-inline: 3vh;
+}
+
+#project-list > section > h3 {
+    display: flex;
+    justify-content: center;
+}
+
+#project-list > section > ul {
+    list-style-type: none;
+}
+
+#project-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100%;
+}
+
+#project-body > .todo-list {
+    border: solid;
+    border-color: aqua;
+    margin-left: .5vh;
 }
