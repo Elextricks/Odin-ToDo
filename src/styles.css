@@ -1,5 +1,21 @@
 /* styles.css */
-body {
-    background-color: rebeccapurple;
-  }
-  
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.body-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+}
+
+.sidebar {
+    border-style: solid;
+    border-color: red;
+}
+
+.project-view {
+    border-style: solid;
+    border-color: green;
+}
