@@ -27,11 +27,40 @@
                 <h2>Project View</h2>
             </div>
             <div id="project-body">
-                <div class="todo-list">1st To-do</div>
-                <div class="todo-list">2nd To-do</div>
-                <div class="todo-list">3rd To-do</div>
+                <div class="todo-item">
+                    <div class="todo-header">
+                        <h3>1st To-do</h3>
+                        <div>
+                            <p class="todo-priority">Priority: High</p>
+                            <p class="todo-due-date">Due Date: 1/1/2050</p>
+                        </div>
+                    </div> 
+                    <div class="todo-body">
+                        <div class="checklist-item">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> I have a bike</label><br>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <dialog id="new-todo-modal">
+        <p>New Todo</p>
+        <form method="dialog">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title-input" name="title" required><br>
+            <label for="description">Description:</label><br>
+            <input type="text" id="description-input" name="description"><br>
+            <label for="due-date">Due Date:</label><br>
+            <input type="date" id="due-date-input" name="due-date"><br>
+            <label for="priority">Priority:</label><br>
+            <input type="text" id="priority-input" name="priority"><br>
+        </form>
+        <div id="footer">
+            <button id="submit">Submit</button>
+            <button id="close">Close</button>
+        </div>
+    </dialog>
 </body>
 </html>

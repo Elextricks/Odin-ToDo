@@ -48,11 +48,32 @@ html, body {
 #project-body {
     display: grid;
     grid-template-columns: 1fr;
-    height: 100%;
 }
 
-#project-body > .todo-list {
+#project-body > .todo-item {
     border: solid;
     border-color: aqua;
     margin-left: .5vh;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-header > div {
+    display: flex;
+    gap: 2vh;
+    padding-right: 2vh;
+}
+
+.todo-priority {
+    background-color: red;
+    border-radius: 5px;
+    margin: 0;
+    width: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
