@@ -28,58 +28,75 @@ function createTodo() {
 }
 
 function displayTodo(input) {
-    console.log(input);
 
     const projectBody = document.querySelector("#project-body");
 
-    let todoItem =  document.createElement("div");
+    const todoItem =  document.createElement("div");
     todoItem.classList.add("todo-item")
-
-    let todoHeader = document.createElement("div");
-    todoHeader.classList.add("todo-header");
-
-    let headerText = document.createElement("h3");
-
-    let rightTodoHeader = document.createElement("div");
-
-    let todoPriority = document.createElement("p");
-    todoPriority.classList.add("todo-priority");
-
-    let todoDueDate = document.createElement("p");
-    todoDueDate.classList.add("todo-due-date");
-    
-    headerText.textContent = input.title;
-
-    todoPriority.textContent = "Priority: " + input.priority;
-    todoDueDate.textContent = "Due Date: " + input.dueDate;
-
-    // Append all elements
-    rightTodoHeader.append(todoPriority);
-    rightTodoHeader.append(todoDueDate);
-    todoHeader.append(headerText);
-    todoHeader.append(rightTodoHeader);
-    todoItem.append(todoHeader);
     projectBody.append(todoItem);
 
-    //Follow similar format
+    const todoHeader = document.createElement("div");
+    todoHeader.classList.add("todo-header");
+    todoItem.append(todoHeader);
 
-    // <div id="project-body">
-    //     <div class="todo-item">
-    //         <div class="todo-header">
-    //             <h3>1st To-do</h3>
-    //             <div>
-    //                 <p class="todo-priority">Priority: High</p>
-    //                 <p class="todo-due-date">Due Date: 1/1/2050</p>
-    //             </div>
-    //         </div> 
-    //         <div class="todo-body">
-    //             <div class="checklist-item">
-    //                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-    //                 <label for="vehicle1"> I have a bike</label><br>
-    //             </div>
-    //         </div>
-    //     </div>
-    // </div>
+    //Create header element with text
+    const headerText = document.createElement("h3");
+    headerText.textContent = input.title;
+    todoHeader.append(headerText);
+
+    //Create right portion of header which contains priority and due date
+    const rightTodoHeader = document.createElement("div");
+    todoHeader.append(rightTodoHeader);
+
+    //Create and append priority to right todo header
+    const todoPriority = document.createElement("p");
+    todoPriority.classList.add("todo-priority");
+    todoPriority.textContent = "Priority: " + input.priority;
+    rightTodoHeader.append(todoPriority);
+
+    //Create and append due date to right todo header
+    const todoDueDate = document.createElement("p");
+    todoDueDate.classList.add("todo-due-date");
+    todoDueDate.textContent = "Due Date: " + input.dueDate;
+    rightTodoHeader.append(todoDueDate);
+
+    //Create todo body
+    const todoBody = document.createElement("div");
+    todoBody.classList.add("todo-body");
+
+    //Create and append todo description to todo body
+    const todoDescription = document.createElement("p");
+    todoDescription.textContent = input.description;
+    todoBody.appendChild(todoDescription);
+    todoItem.append(todoBody);
+
+    //Create and append button to todo body
+    const newCheckboxBtn = document.createElement("button");
+    newCheckboxBtn.classList.add("new-checkbox-btn");
+    newCheckboxBtn.textContent = "Add";
+    todoBody.appendChild(newCheckboxBtn);
+
+    newCheckboxBtn.addEventListener("click", (event) => {
+        addChecklistItem(todoBody, newCheckboxBtn);
+    })
+}
+
+function addChecklistItem(todoBody, newCheckboxBtn) {
+    console.log("checklist function");
+
+    const checklistDiv = document.createElement("div");
+    checklistDiv.classList.add("checklist-row");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.classList.add("checklist-box");
+    checklistDiv.appendChild(checkbox);
+
+    let checkboxText = document.createElement("input");
+    checkboxText.classList.add("checklist-text");
+    checklistDiv.appendChild(checkboxText);
+
+    todoBody.insertBefore(checklistDiv, newCheckboxBtn);
 }
 
 class Todo {

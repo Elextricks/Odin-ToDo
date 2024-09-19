@@ -77,3 +77,21 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
+.todo-body {
+    display: flex;
+    flex-direction: column;
+    gap: .5vh;
+}
+
+.new-checkbox-btn {
+    background-color: #81a0f5;
+    border-style: none;
+    border-radius: 5px;
+    height: 4vh;
+    width: 9vh;
+}
+
+.new-checkbox-btn:hover {
+    background-color: #678bec;
+}
