@@ -26,6 +26,12 @@ function createTodo() {
         displayTodo(todo);
         addTodoList(titleInput);
     }, { once: true });  // Add the once option to ensure this runs only once per modal open
+
+    document.querySelector("#close").addEventListener("click", () => {
+        newTodoModal.close();
+        const inputFields = document.querySelectorAll("#new-todo-modal input");
+        inputFields.forEach((input) => input.value = "");
+    }, { once: true});
 }
 
 function displayTodo(input) {
