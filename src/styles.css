@@ -13,7 +13,7 @@ html, body {
 
 .body-container {
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 6fr;
     height: 100%;
 }
 
@@ -25,7 +25,8 @@ html, body {
 }
 
 #project-view {
-    padding-left: 1vh;
+    display: flex;
+    flex-direction: column;
     background-color: #314366;
 }
 
@@ -73,19 +74,39 @@ html, body {
 }
 
 #project-header {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #27344e;
     color: aliceblue;
+    width: 100%;
+    height: 8vh;
+    box-shadow: 0vh .3vh 1vh -.2vh black;
+}
+
+#project-header h2 {
+    margin-left: 2vh;
 }
 
 #project-body {
+    margin-top: 2vh;
     display: grid;
     grid-template-columns: 1fr;
+    gap: 2vh;
 }
 
-#project-body > .todo-item {
-    margin-left: .5vh;
+.todo-item {
+    background-color: #2b3b5a;
+    padding-inline: 1vh;
+    padding-block: 1vh;
+    border-radius: 1vh;
+    color: aliceblue;
+    font-family: sans-serif;
+    box-shadow: 0vh .3vh 1vh -.2vh black;
 }
 
 .todo-header {
+    padding-left: 2vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,7 +135,7 @@ html, body {
 }
 
 .new-checkbox-btn {
-    background-color: #81a0f5;
+    background-color: #C5CEE6;
     border-style: none;
     border-radius: 5px;
     height: 4vh;
@@ -122,17 +143,18 @@ html, body {
 }
 
 .new-checkbox-btn:hover {
-    background-color: #678bec;
+    background-color: #b5bdd3;
 }
 
 .checklist-row {
     border-bottom: solid;
     border-width: thin;
+    border-color: #142033;
 }
 
 .checklist-text {
     border: none;
-    background-color: #314366;
+    background-color: #2b3b5a;
     border-radius: .2vh;
     color: aliceblue;
 }
