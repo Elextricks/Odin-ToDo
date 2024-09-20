@@ -23,7 +23,8 @@ function createTodo() {
         inputFields.forEach((input) => input.value = "");
 
 
-        displayTodo(todo)
+        displayTodo(todo);
+        addTodoList(titleInput);
     }, { once: true });  // Add the once option to ensure this runs only once per modal open
 }
 
@@ -65,7 +66,7 @@ function displayTodo(input) {
     todoBody.classList.add("todo-body");
 
     //Create and append todo description to todo body
-    const todoDescription = document.createElement("p");
+    const todoDescription = document.createElement("div");
     todoDescription.textContent = input.description;
     todoBody.appendChild(todoDescription);
     todoItem.append(todoBody);
@@ -73,17 +74,22 @@ function displayTodo(input) {
     //Create and append button to todo body
     const newCheckboxBtn = document.createElement("button");
     newCheckboxBtn.classList.add("new-checkbox-btn");
-    newCheckboxBtn.textContent = "Add";
+    newCheckboxBtn.textContent = "Add Task";
     todoBody.appendChild(newCheckboxBtn);
 
-    newCheckboxBtn.addEventListener("click", (event) => {
-        addChecklistItem(todoBody, newCheckboxBtn);
+    newCheckboxBtn.addEventListener("click", () => {
+        addChecklistItem(todoBody);
     })
 }
 
-function addChecklistItem(todoBody, newCheckboxBtn) {
-    console.log("checklist function");
+function addTodoList(title) {
+    const todoList = document.querySelector("#todo-list ul");
+    let listItem = document.createElement("li")
+    listItem.textContent = title;
+    todoList.appendChild(listItem);
+}
 
+function addChecklistItem(todoBody) {
     const checklistDiv = document.createElement("div");
     checklistDiv.classList.add("checklist-row");
 
@@ -96,7 +102,17 @@ function addChecklistItem(todoBody, newCheckboxBtn) {
     checkboxText.classList.add("checklist-text");
     checklistDiv.appendChild(checkboxText);
 
-    todoBody.insertBefore(checklistDiv, newCheckboxBtn);
+    todoBody.appendChild(checklistDiv);
+
+    checkboxText.focus();
+
+    checkboxText.addEventListener("blur", () => {
+        blurListener(checkboxText);
+    });
+}
+
+function blurListener(checkboxText) {
+    console.log("Blur occured");
 }
 
 class Todo {
