@@ -7,6 +7,44 @@
     <title>Document</title>
 <script defer src="main.js"></script></head>
 <body>
-    <h1>Hello World!</h1>
+    <div class="body-container">
+        <div class="sidebar">
+            <div id="sidebar-header">Josiah</div>
+            <div id="sidebar-functions">
+                <button id="add-task-button">Add task</button>
+                <button id="delete-task-button">Delete task</button>
+            </div>
+            <div id="todo-list">
+                <section>
+                    <h3>My Todos</h3>
+                    <ul></ul>
+                </section>
+            </div>
+        </div>
+        <div id="project-view">
+            <div id="project-header">
+                <h2>Project View</h2>
+            </div>
+            <div id="project-body">
+            </div>
+        </div>
+    </div>
+    <dialog id="new-todo-modal">
+        <p>New Todo</p>
+        <form method="dialog">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title-input" name="title" required><br>
+            <label for="description">Description:</label><br>
+            <input type="text" id="description-input" name="description"><br>
+            <label for="due-date">Due Date:</label><br>
+            <input type="date" id="due-date-input" name="due-date"><br>
+            <label for="priority">Priority:</label><br>
+            <input type="text" id="priority-input" name="priority"><br>
+        </form>
+        <div id="footer">
+            <button id="submit">Submit</button>
+            <button id="close">Close</button>
+        </div>
+    </dialog>
 </body>
 </html>
