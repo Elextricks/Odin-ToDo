@@ -33,7 +33,7 @@ html, body {
 #sidebar-functions {
     display: flex;
     flex-direction: column;
-    gap: 1vh;
+    gap: min(1vh, 1vh);
     align-items: center;
 }
 
